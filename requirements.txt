@@ -1,0 +1,4 @@
+# Hiện tại project chỉ sử dụng Python Standard Library.
+# Không có dependency Python bên thứ ba cần cài bằng pip.
+#
+# Python khuyến nghị: >= 3.10

@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# IDE / editor
+.vscode/
+.idea/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Build / package output
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+*.part
+*.bak
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Local notebooks checkpoints
+.ipynb_checkpoints/
+
+# IMPORTANT:
+# Không ignore data/du_lieu_logo/anh_goc ở bản hiện tại vì mục tiêu là
+# đưa toàn bộ kết quả công việc lên repo theo yêu cầu báo cáo.
+# Nếu repo quá nặng, có thể chuyển dataset ảnh sang Git LFS sau.
