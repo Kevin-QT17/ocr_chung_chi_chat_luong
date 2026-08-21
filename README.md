@@ -219,9 +219,3 @@ Hathyo
 ```
 
 Bước tiếp theo: **thử nghiệm Computer Vision nhận diện logo chứng chỉ**.
-
-## 10. Ghi chú kỹ thuật
-
-- Dataset ảnh có kích thước tương đối lớn; lần push Git đầu tiên có thể mất thời gian.
-- Không commit môi trường ảo, cache Python, file tạm hoặc thông tin bí mật.
-- Một số đường dẫn trong metadata hiện được sinh từ môi trường Windows; nếu chuyển sang Linux/Docker cần kiểm tra việc chuẩn hóa dấu phân cách đường dẫn.
