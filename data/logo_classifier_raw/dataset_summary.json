@@ -1,0 +1,46 @@
+{
+  "known_classes": [
+    "haccp",
+    "fda",
+    "gmp",
+    "iso_22000",
+    "ocop"
+  ],
+  "unknown_class": "khac",
+  "splits": {
+    "train": {
+      "total_crops": 71,
+      "class_counts": {
+        "haccp": 2,
+        "fda": 2,
+        "gmp": 3,
+        "iso_22000": 2,
+        "ocop": 22,
+        "khac": 40
+      }
+    },
+    "val": {
+      "total_crops": 15,
+      "class_counts": {
+        "haccp": 2,
+        "fda": 0,
+        "gmp": 0,
+        "iso_22000": 0,
+        "ocop": 4,
+        "khac": 9
+      }
+    },
+    "test": {
+      "total_crops": 17,
+      "class_counts": {
+        "haccp": 1,
+        "fda": 0,
+        "gmp": 1,
+        "iso_22000": 1,
+        "ocop": 8,
+        "khac": 6
+      }
+    }
+  },
+  "total_crops": 103
+}

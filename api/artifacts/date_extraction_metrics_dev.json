@@ -1,0 +1,159 @@
+{
+  "reference_set_note": "Rules were developed using this AI-reviewed 94-image reference set; these are development exact-match metrics, not an independent external test.",
+  "total_images": 94,
+  "all_94": {
+    "issue_date": {
+      "tp": 17,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.9444444444444444,
+      "f1": 0.9714285714285714,
+      "wrong_date_pairs": 0
+    },
+    "valid_from": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "wrong_date_pairs": 0
+    },
+    "expiry_date": {
+      "tp": 17,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "wrong_date_pairs": 0
+    },
+    "decision_date": {
+      "tp": 14,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.9333333333333333,
+      "f1": 0.9655172413793104,
+      "wrong_date_pairs": 0
+    }
+  },
+  "by_split": {
+    "train": {
+      "issue_date": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104,
+        "wrong_date_pairs": 0
+      },
+      "valid_from": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wrong_date_pairs": 0
+      },
+      "expiry_date": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wrong_date_pairs": 0
+      },
+      "decision_date": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.9166666666666666,
+        "f1": 0.9565217391304348,
+        "wrong_date_pairs": 0
+      }
+    },
+    "val": {
+      "issue_date": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wrong_date_pairs": 0
+      },
+      "valid_from": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "wrong_date_pairs": 0
+      },
+      "expiry_date": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wrong_date_pairs": 0
+      },
+      "decision_date": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wrong_date_pairs": 0
+      }
+    },
+    "test": {
+      "issue_date": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wrong_date_pairs": 0
+      },
+      "valid_from": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "wrong_date_pairs": 0
+      },
+      "expiry_date": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wrong_date_pairs": 0
+      },
+      "decision_date": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wrong_date_pairs": 0
+      }
+    }
+  },
+  "known_limitation": "anh_000100.jpg issue/decision date month is missing in OCR text; exact 2024-06-03 cannot be recovered from OCR alone without re-OCR/image-specific recovery."
+}

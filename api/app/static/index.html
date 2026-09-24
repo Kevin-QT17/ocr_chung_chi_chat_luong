@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nhận diện chứng chỉ chất lượng</title>
+  <style>
+    :root {
+      --bg: #f3f6fa;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --primary: #2457d6;
+      --primary-dark: #173fa8;
+      --border: #dbe2ea;
+      --ok: #117a45;
+      --warn: #a15c00;
+      --danger: #b42318;
+      --shadow: 0 10px 30px rgba(25, 39, 66, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .header {
+      background: linear-gradient(135deg, #153a94, #2d66dc);
+      color: white;
+      padding: 30px 20px;
+    }
+    .header-inner, .main { max-width: 1040px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; font-size: clamp(26px, 4vw, 38px); }
+    .subtitle { margin: 0; opacity: .9; line-height: 1.6; }
+    .main { padding: 24px 16px 44px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    .supported {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;
+    }
+    .pill {
+      background: #eef3ff; color: #254fae; border: 1px solid #d7e2ff;
+      border-radius: 999px; padding: 7px 11px; font-size: 14px; font-weight: 650;
+    }
+    .upload-zone {
+      border: 2px dashed #a8b6cb;
+      border-radius: 14px;
+      padding: 26px;
+      text-align: center;
+      background: #fbfcfe;
+      transition: .2s;
+    }
+    .upload-zone.drag { border-color: var(--primary); background: #f1f5ff; }
+    input[type=file] { max-width: 100%; }
+    .preview-wrap { display: none; margin-top: 18px; }
+    .preview-wrap img {
+      width: 100%; max-height: 520px; object-fit: contain;
+      border: 1px solid var(--border); border-radius: 12px; background: #fff;
+    }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    button {
+      border: 0; border-radius: 10px; padding: 11px 18px;
+      font-size: 15px; font-weight: 700; cursor: pointer;
+    }
+    .primary { background: var(--primary); color: white; }
+    .primary:hover { background: var(--primary-dark); }
+    .secondary { background: #eef1f5; color: #344054; }
+    button:disabled { opacity: .55; cursor: not-allowed; }
+    .status { margin-top: 16px; font-size: 14px; color: var(--muted); }
+    .error { color: var(--danger); font-weight: 650; }
+    .result { display: none; }
+    .result-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
+    }
+    .metric {
+      border: 1px solid var(--border); border-radius: 12px; padding: 15px; background: #fbfcfe;
+    }
+    .metric .label { color: var(--muted); font-size: 13px; margin-bottom: 5px; }
+    .metric .value { font-weight: 750; font-size: 18px; word-break: break-word; }
+    .type-value { color: var(--primary-dark); font-size: 24px !important; }
+    .date-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 14px; }
+    .date-item { border-left: 4px solid #91a9e8; padding: 8px 12px; background: #f8faff; border-radius: 8px; }
+    .date-item strong { display: block; margin-bottom: 4px; }
+    details { margin-top: 16px; }
+    summary { cursor: pointer; font-weight: 700; }
+    pre {
+      white-space: pre-wrap; word-break: break-word; overflow: auto;
+      padding: 14px; background: #111827; color: #d1e7ff; border-radius: 10px;
+      font-size: 12px; line-height: 1.5;
+    }
+    .note { color: var(--muted); font-size: 13px; line-height: 1.6; margin-top: 12px; }
+    .footer { color: var(--muted); text-align: center; font-size: 13px; padding-top: 4px; }
+    @media (max-width: 700px) {
+      .result-grid, .date-grid { grid-template-columns: 1fr; }
+      .card { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1>Nhận diện chứng chỉ chất lượng</h1>
+      <p class="subtitle">Tải ảnh lên để nhận diện loại chứng chỉ/logo và trích xuất các mốc ngày liên quan.</p>
+      <div class="supported">
+        <span class="pill">HACCP</span><span class="pill">FDA</span><span class="pill">GMP</span>
+        <span class="pill">ISO 22000</span><span class="pill">OCOP</span><span class="pill">Khác</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="card">
+      <h2 style="margin-top:0">Kiểm tra hình ảnh</h2>
+      <p style="color:var(--muted);line-height:1.6">Chọn ảnh sản phẩm, logo hoặc giấy chứng nhận. Hệ thống sẽ kết hợp phát hiện vùng logo, OCR toàn trang và so khớp hình ảnh để đưa ra kết quả.</p>
+      <div class="upload-zone" id="dropZone">
+        <input id="fileInput" type="file" accept="image/*" />
+        <div class="note">Hỗ trợ các định dạng ảnh thông dụng như JPG, JPEG, PNG và WEBP.</div>
+      </div>
+      <div class="preview-wrap" id="previewWrap"><img id="preview" alt="Ảnh xem trước" /></div>
+      <div class="actions">
+        <button class="primary" id="analyzeBtn" disabled>Phân tích ảnh</button>
+        <button class="secondary" id="clearBtn" type="button">Làm mới</button>
+      </div>
+      <div class="status" id="status"></div>
+    </section>
+
+    <section class="card result" id="resultCard">
+      <h2 style="margin-top:0">Kết quả nhận diện</h2>
+      <div class="result-grid">
+        <div class="metric">
+          <div class="label">Loại chứng chỉ / logo</div>
+          <div class="value type-value" id="certificateType">—</div>
+        </div>
+        <div class="metric">
+          <div class="label">Nguồn xác định kết quả</div>
+          <div class="value" id="source">—</div>
+        </div>
+        <div class="metric">
+          <div class="label">Trạng thái phát hiện vùng logo</div>
+          <div class="value" id="detectorStatus">—</div>
+        </div>
+        <div class="metric">
+          <div class="label">Điểm nhận diện nội bộ</div>
+          <div class="value" id="score">—</div>
+        </div>
+      </div>
+
+      <h3>Thông tin ngày tháng</h3>
+      <div class="date-grid">
+        <div class="date-item"><strong>Ngày cấp</strong><span id="issueDate">Không xác định</span></div>
+        <div class="date-item"><strong>Ngày bắt đầu hiệu lực</strong><span id="validFrom">Không xác định</span></div>
+        <div class="date-item"><strong>Ngày hết hạn</strong><span id="expiryDate">Không xác định</span></div>
+        <div class="date-item"><strong>Ngày quyết định / ký ban hành</strong><span id="decisionDate">Không xác định</span></div>
+      </div>
+
+      <p class="note">Điểm nhận diện là điểm nội bộ của từng nhánh xử lý, không phải xác suất pháp lý hay xác suất được hiệu chuẩn. Kết quả cần được đối chiếu với tài liệu gốc khi sử dụng cho nghiệp vụ quan trọng.</p>
+
+      <details>
+        <summary>Xem chi tiết kỹ thuật</summary>
+        <pre id="rawJson"></pre>
+      </details>
+    </section>
+
+    <div class="footer">Hệ thống thử nghiệm nhận diện chứng chỉ chất lượng — FastAPI v0.3.0</div>
+  </main>
+
+<script>
+  const fileInput = document.getElementById('fileInput');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const previewWrap = document.getElementById('previewWrap');
+  const preview = document.getElementById('preview');
+  const resultCard = document.getElementById('resultCard');
+  const statusEl = document.getElementById('status');
+  const dropZone = document.getElementById('dropZone');
+
+  const typeMap = {
+    haccp: 'HACCP', fda: 'FDA', gmp: 'GMP', iso_22000: 'ISO 22000', ocop: 'OCOP', khac: 'Khác / chưa xác định'
+  };
+  const sourceMap = {
+    detector_crop_ocr: 'Phát hiện vùng logo + OCR ngữ cảnh',
+    full_page_ocr_fallback: 'OCR toàn trang',
+    visual_orb_fallback: 'So khớp hình ảnh tham chiếu',
+    unknown: 'Chưa đủ bằng chứng để xác định'
+  };
+  const detectorMap = {
+    hit_known: 'Đã phát hiện và nhận dạng được vùng logo',
+    hit_unclassified: 'Có vùng nghi ngờ nhưng chưa phân loại trực tiếp',
+    no_detection: 'Không phát hiện được vùng logo bằng YOLO'
+  };
+
+  function formatDate(iso) {
+    if (!iso) return 'Không xác định';
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    return m ? `${m[3]}/${m[2]}/${m[1]}` : iso;
+  }
+
+  function currentFile() { return fileInput.files && fileInput.files[0]; }
+
+  function showPreview(file) {
+    if (!file) return;
+    preview.src = URL.createObjectURL(file);
+    previewWrap.style.display = 'block';
+    analyzeBtn.disabled = false;
+    resultCard.style.display = 'none';
+    statusEl.textContent = '';
+  }
+
+  fileInput.addEventListener('change', () => showPreview(currentFile()));
+  ['dragenter','dragover'].forEach(ev => dropZone.addEventListener(ev, e => { e.preventDefault(); dropZone.classList.add('drag'); }));
+  ['dragleave','drop'].forEach(ev => dropZone.addEventListener(ev, e => { e.preventDefault(); dropZone.classList.remove('drag'); }));
+  dropZone.addEventListener('drop', e => {
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      const dt = new DataTransfer(); dt.items.add(e.dataTransfer.files[0]); fileInput.files = dt.files; showPreview(fileInput.files[0]);
+    }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    fileInput.value = '';
+    preview.src = '';
+    previewWrap.style.display = 'none';
+    resultCard.style.display = 'none';
+    analyzeBtn.disabled = true;
+    statusEl.textContent = '';
+  });
+
+  analyzeBtn.addEventListener('click', async () => {
+    const file = currentFile();
+    if (!file) return;
+    analyzeBtn.disabled = true;
+    statusEl.className = 'status';
+    statusEl.textContent = 'Đang phân tích ảnh, vui lòng chờ...';
+    const form = new FormData();
+    form.append('file', file);
+    try {
+      const res = await fetch('/v1/analyze?detector_confidence=0.4&imgsz=960&include_ocr=false', { method: 'POST', body: form });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'Không thể phân tích ảnh.');
+
+      document.getElementById('certificateType').textContent = typeMap[data.certificate_type] || data.certificate_type || 'Không xác định';
+      document.getElementById('source').textContent = sourceMap[data.classification_source] || data.classification_source || 'Không xác định';
+      document.getElementById('detectorStatus').textContent = detectorMap[data.detector_status] || data.detector_status || 'Không xác định';
+      document.getElementById('score').textContent = Number.isFinite(Number(data.classification_score)) ? Number(data.classification_score).toFixed(1) : '—';
+      document.getElementById('issueDate').textContent = formatDate(data.dates?.issue_date);
+      document.getElementById('validFrom').textContent = formatDate(data.dates?.valid_from);
+      document.getElementById('expiryDate').textContent = formatDate(data.dates?.expiry_date);
+      document.getElementById('decisionDate').textContent = formatDate(data.dates?.decision_date);
+      document.getElementById('rawJson').textContent = JSON.stringify(data, null, 2);
+      resultCard.style.display = 'block';
+      statusEl.textContent = 'Phân tích hoàn tất.';
+      resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      statusEl.className = 'status error';
+      statusEl.textContent = 'Lỗi: ' + (err?.message || err);
+    } finally {
+      analyzeBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

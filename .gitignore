@@ -55,3 +55,6 @@ dist/
 # Không ignore data/du_lieu_logo/anh_goc ở bản hiện tại vì mục tiêu là
 # đưa toàn bộ kết quả công việc lên repo theo yêu cầu báo cáo.
 # Nếu repo quá nặng, có thể chuyển dataset ảnh sang Git LFS sau.
+/data/yolo_logo/
+/data/yolo_logo_binary/
+/data/yolo_logo_multiclass_aug/

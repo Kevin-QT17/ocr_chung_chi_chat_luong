@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "classes": [
+    "haccp",
+    "fda",
+    "gmp",
+    "iso_22000",
+    "ocop"
+  ],
+  "references": [
+    {
+      "file": "fda_001_anh_000048.jpg",
+      "class_name": "fda",
+      "source_image": "anh_000048.jpg"
+    },
+    {
+      "file": "fda_002_anh_000155.jpg",
+      "class_name": "fda",
+      "source_image": "anh_000155.jpg"
+    },
+    {
+      "file": "gmp_001_anh_000155.jpg",
+      "class_name": "gmp",
+      "source_image": "anh_000155.jpg"
+    },
+    {
+      "file": "gmp_002_anh_000274.jpg",
+      "class_name": "gmp",
+      "source_image": "anh_000274.jpg"
+    },
+    {
+      "file": "gmp_003_anh_000375.jpg",
+      "class_name": "gmp",
+      "source_image": "anh_000375.jpg"
+    },
+    {
+      "file": "haccp_001_anh_000020.jpg",
+      "class_name": "haccp",
+      "source_image": "anh_000020.jpg"
+    },
+    {
+      "file": "haccp_002_anh_000230.jpg",
+      "class_name": "haccp",
+      "source_image": "anh_000230.jpg"
+    },
+    {
+      "file": "iso_22000_001_anh_000280.jpg",
+      "class_name": "iso_22000",
+      "source_image": "anh_000280.jpg"
+    },
+    {
+      "file": "iso_22000_002_anh_000287.jpg",
+      "class_name": "iso_22000",
+      "source_image": "anh_000287.jpg"
+    },
+    {
+      "file": "ocop_001_anh_000085.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000085.jpg"
+    },
+    {
+      "file": "ocop_002_anh_000088.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000088.jpg"
+    },
+    {
+      "file": "ocop_003_anh_000089.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000089.jpg"
+    },
+    {
+      "file": "ocop_004_anh_000097.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000097.jpg"
+    },
+    {
+      "file": "ocop_005_anh_000098.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000098.jpg"
+    },
+    {
+      "file": "ocop_006_anh_000099.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000099.jpg"
+    },
+    {
+      "file": "ocop_007_anh_000101.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000101.jpg"
+    },
+    {
+      "file": "ocop_008_anh_000109.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000109.jpg"
+    },
+    {
+      "file": "ocop_009_anh_000111.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000111.jpg"
+    },
+    {
+      "file": "ocop_010_anh_000112.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000112.jpg"
+    },
+    {
+      "file": "ocop_011_anh_000113.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000113.jpg"
+    },
+    {
+      "file": "ocop_012_anh_000130.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000130.jpg"
+    },
+    {
+      "file": "ocop_013_anh_000131.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000131.jpg"
+    },
+    {
+      "file": "ocop_014_anh_000132.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000132.jpg"
+    },
+    {
+      "file": "ocop_015_anh_000139.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000139.jpg"
+    },
+    {
+      "file": "ocop_016_anh_000223.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000223.jpg"
+    },
+    {
+      "file": "ocop_017_anh_000224.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000224.jpg"
+    },
+    {
+      "file": "ocop_018_anh_000245.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000245.jpg"
+    },
+    {
+      "file": "ocop_019_anh_000293.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000293.jpg"
+    },
+    {
+      "file": "ocop_020_anh_000293.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000293.jpg"
+    },
+    {
+      "file": "ocop_021_anh_000307.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000307.jpg"
+    },
+    {
+      "file": "ocop_022_anh_000307.jpg",
+      "class_name": "ocop",
+      "source_image": "anh_000307.jpg"
+    }
+  ]
+}
